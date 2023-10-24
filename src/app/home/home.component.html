@@ -1,0 +1,75 @@
+<div class="outer_container">
+
+    <div class="big_container">
+      <div class="top_bar">
+        <span>Find Flights</span>
+      </div>
+      <div class="transparent_bg">
+        <div class="container">
+          <div class="search_pane"> 
+            <div class="search_box">
+              <mat-form-field>
+                <mat-label>Origin</mat-label>
+                <mat-icon>flight_takeoff</mat-icon>
+                
+                <mat-select>
+                  <mat-option *ngFor="let from_city of from_city" [value]="from_city.value">
+                    {{from_city.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="search_box">
+              <mat-form-field>
+                <mat-icon>flight_land</mat-icon>
+                <mat-label>Destination</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let to_city of from_city" [value]="to_city.value">
+                    {{to_city.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="search_box">
+              <button mat-raised-button color="primary">Search</button>
+            </div>
+          </div>
+          <div class="flight_pane">  
+            <div class="flight_headers">
+              <div class="flight_number cell"> <mat-label># Flight</mat-label></div>
+              <div class="carrier_name cell">Airline</div>
+              <div class="dep_iata cell"> Origin </div>
+              <div class="arrives cell"> Destination </div>
+              
+              <div class="flight_number cell">Flight Number</div>
+              <div class="departs cell">Departs</div>
+              <div class="Arrives cell">Arrives</div>
+              <div class="nonstop cell"> Status </div>
+              
+            </div>
+            
+            <div *ngFor="let flight of flights " class="flight_results">
+              <div class="flight_iata cell">{{ flight.airline_iata }}</div>
+              <div class="flight_number cell"> {{flight.flight_iata}}</div>
+              <div class="dep_iata cell">{{ flight.dep_iata }}</div>
+              <div class ="arr_iata cell">{{ flight.arr_iata}}</div>
+              <div class="flight_number cell">{{flight.flight_number}}</div>
+              <div class="departs cell"> {{flight.dep_time | date : 'shortDate' }}</div>
+              <div class="arrives cell"> {{flight.arr_time | date : 'shortDate' }}</div>
+              <div class="status cell">{{ flight.status }}</div>
+             
+  
+  
+              
+            </div>
+            <div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+  
+  
